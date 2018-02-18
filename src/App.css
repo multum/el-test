@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@font-face {
+  font-family: "CourierNewPSMT";
+  src: url("./fonts/CourierNewPSMT.eot");
+  src: url("./fonts/CourierNewPSMT.eot?#iefix") format("embedded-opentype"), url("./fonts/CourierNewPSMT.woff") format("woff"), url("./fonts/CourierNewPSMT.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+
+* {
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: #FAFBFC; }
+
+.container {
+  text-align: left;
+  padding-top: 120px; }

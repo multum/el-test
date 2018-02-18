@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "title": {
+        "ico": "svg/ico1.svg",
+        "icoBackgroundColor": "#1367D7",
+        "text": "How to Setup"
+      },
+      "content": "<div>\n      <ul>\n        <li>\n           <p><strong>Step 1:</strong>  git clone this repo:</p>\n        </li> \n        <li>\n            <p><strong>Step 2:</strong> cd to the cloned repo:</p>\n        </li>\n        <li>\n            <p><strong>Step 3:</strong> Install the Application with <code>yarn</code> or <code>npm i</code></p>\n        </li>\n      </ul>\n    </div>"
+    },
+    {
+      "title": {
+        "ico": "svg/ico2.svg",
+        "icoBackgroundColor": "#24B1E7",
+        "text": "How to Run App"
+      },
+      "content": "<div>\n      <ul>\n        <li>\n            <p><strong>Step 1:</strong> git clone this repo:</p>\n        </li>\n        <li>\n            <p><strong>Step 2:</strong> cd to the cloned repo:</p>\n        </li>\n        <li>\n            <p><strong>Step 3:</strong> Install the Application with <code>yarn</code> or <code>npm i</code></p>\n        </li>\n      </ul>\n    </div>"
+    },
+    {
+      "title": {
+        "ico": "svg/ico3.svg",
+        "icoBackgroundColor": "#00C2A5",
+        "text": "Standard Compliant"
+      },
+      "content": "<div>\n      <ul>\n        <li>\n            <p><strong>Step 1:</strong> git clone this repo:</p>\n        </li>\n        <li>\n           <p><strong> Step 2:</strong> cd to the cloned repo:</p>\n        </li>\n        <li>\n           <p><strong>Step 3:</strong> Install the Application with <code>yarn</code> or <code>npm i</code></p>\n        </li>\n      </ul>\n    </div>"
+    },
+    {
+      "title": {
+        "ico": "svg/ico4.svg",
+        "icoBackgroundColor": "#ECBF00",
+        "text": "Secrets"
+      },
+      "content": "<div> \n      <p><a href=\"#\">This project</a> uses react-native-config to expose config variables to your javascript code in React Native. You can store API keys and other sensitive information in a <code>.env</code> file:</p>\n      <pre>\n        <code>API_URL=https://myapi.com\n        GOOGLE_MAPS_API_KEY=abcdefgh</code>\n      </pre>\n    </div>"
+    }
+  ]
+}

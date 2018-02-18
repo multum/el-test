@@ -1,0 +1,23 @@
+.h2 {
+  font-size: 32px;
+  letter-spacing: -0.888889px;
+  color: #222634;
+  margin-bottom: 24px; }
+
+code {
+  font: 16px "CourierNewPSMT", sans-serif;
+  line-height: 22px;
+  background: #F9FBFC;
+  padding: 0px 6px;
+  display: inline-block;
+  border-radius: 4px;
+  vertical-align: top;
+  margin: 0 4px; }
+
+pre {
+  white-space: pre-line;
+  margin-top: 32px;
+  display: block; }
+  pre code {
+    padding: 15px;
+    display: block; }

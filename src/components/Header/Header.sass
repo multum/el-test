@@ -1,0 +1,41 @@
+@import '../../styles/helpers'
+.wrapper
+	background: #000
+	padding: 12px 0
+	background: linear-gradient(0deg, #213B82, #213B82)
+	color: #fff
+	position: fixed
+	left: 0
+	right: 0
+	top: 0
+	backface-visibility: hidden
+	z-index: 9999
+.container
+	+flex(row, wrap, space-between, center)
+.user
+	+flex(row, wrap, flex-start, center)
+	font-weight: 500
+	.logo
+		width: 36px
+		height: 36px
+		background: #2161B7
+		border-radius: 50%
+		font-family: $roboto
+		line-height: 36px
+		text-align: center
+	.name
+		font: 16px $roboto
+		margin-left: 10px
+.activeLink
+	opacity: .6
+.navList
+	+flex(row, wrap, flex-start, flex-start)
+	font-weight: 300
+	li
+		margin: 0 10px
+	a
+		padding: 10px
+		transition: .3s
+		&:hover
+			color: #FAFBFC
+			opacity: 0.8

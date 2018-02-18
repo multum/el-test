@@ -1,0 +1,53 @@
+.wrapper {
+  background: #000;
+  padding: 12px 0;
+  background: linear-gradient(0deg, #213B82, #213B82);
+  color: #fff;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  backface-visibility: hidden;
+  z-index: 9999; }
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center; }
+
+.user {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 500; }
+  .user .logo {
+    width: 36px;
+    height: 36px;
+    background: #2161B7;
+    border-radius: 50%;
+    font-family: "Roboto", sans-serif;
+    line-height: 36px;
+    text-align: center; }
+  .user .name {
+    font: 16px "Roboto", sans-serif;
+    margin-left: 10px; }
+
+.activeLink {
+  opacity: .6; }
+
+.navList {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-weight: 300; }
+  .navList li {
+    margin: 0 10px; }
+  .navList a {
+    padding: 10px;
+    transition: .3s; }
+    .navList a:hover {
+      color: #FAFBFC;
+      opacity: 0.8; }
