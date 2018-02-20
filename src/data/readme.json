@@ -6,7 +6,7 @@
         "icoBackgroundColor": "#1367D7",
         "text": "How to Setup"
       },
-      "content": "<div>\n      <ul>\n        <li>\n           <p><strong>Step 1:</strong>  git clone this repo:</p>\n        </li> \n        <li>\n            <p><strong>Step 2:</strong> cd to the cloned repo:</p>\n        </li>\n        <li>\n            <p><strong>Step 3:</strong> Install the Application with <code>yarn</code> or <code>npm i</code></p>\n        </li>\n      </ul>\n    </div>"
+      "content": "<div>\n      <ul>\n        <li>\n           <p><strong>Step 1:</strong>  git clone this repo</p>\n        </li> \n        <li>\n            <p><strong>Step 2:</strong> cd to the cloned repo</p>\n        </li>\n        <li>\n            <p><strong>Step 3:</strong> Install the Application with <code>yarn</code> or <code>npm i</code></p>\n        </li>\n      </ul>\n    </div>"
     },
     {
       "title": {
@@ -14,15 +14,15 @@
         "icoBackgroundColor": "#24B1E7",
         "text": "How to Run App"
       },
-      "content": "<div>\n      <ul>\n        <li>\n            <p><strong>Step 1:</strong> git clone this repo:</p>\n        </li>\n        <li>\n            <p><strong>Step 2:</strong> cd to the cloned repo:</p>\n        </li>\n        <li>\n            <p><strong>Step 3:</strong> Install the Application with <code>yarn</code> or <code>npm i</code></p>\n        </li>\n      </ul>\n    </div>"
+      "content": "<div>\n      <ul>\n        <li>\n            <p>Enter in console <code>npm start</code></p>\n        </li>\n        <li>\n            <p><strong>Step 2:</strong> cd to the cloned repo</p>\n        </li>\n        <li>\n            <p><strong>Step 3:</strong> Install the Application with <code>yarn</code> or <code>npm i</code></p>\n        </li>\n      </ul>\n    </div>"
     },
     {
       "title": {
         "ico": "svg/ico3.svg",
         "icoBackgroundColor": "#00C2A5",
-        "text": "Standard Compliant"
+        "text": "Used Technologies"
       },
-      "content": "<div>\n      <ul>\n        <li>\n            <p><strong>Step 1:</strong> git clone this repo:</p>\n        </li>\n        <li>\n           <p><strong> Step 2:</strong> cd to the cloned repo:</p>\n        </li>\n        <li>\n           <p><strong>Step 3:</strong> Install the Application with <code>yarn</code> or <code>npm i</code></p>\n        </li>\n      </ul>\n    </div>"
+      "content": "<div>\n      <ul>\n        <li>\n            <p><strong>1:</strong> <a target=\"_blank\" href=\"https://github.com/facebook/create-react-app\">Create-React-App</a></p>\n        </li>\n        <li>\n           <p><strong>2:</strong> <a target=\"_blank\" href=\"https://github.com/facebook/react\">React</a></p>\n        </li>\n        <li>\n           <p><strong>3:</strong> <a target=\"_blank\" href=\"https://github.com/reactjs/redux\">Redux</a></p>\n        </li>\n    <li>\n   <p><strong>4:</strong> <a target=\"_blank\" href=\"https://github.com/gpbl/react-day-picker\">React-Day-Picker</a></p>\n        </li>\n  <li>\n   <p><strong>5:</strong> SASS and <a target=\"_blank\" href=\"https://github.com/css-modules/css-modules\">CSS-Modules</a></p>\n        </li>\n   </ul>\n    </div>"
     },
     {
       "title": {
@@ -30,7 +30,7 @@
         "icoBackgroundColor": "#ECBF00",
         "text": "Secrets"
       },
-      "content": "<div> \n      <p><a href=\"#\">This project</a> uses react-native-config to expose config variables to your javascript code in React Native. You can store API keys and other sensitive information in a <code>.env</code> file:</p>\n      <pre>\n        <code>API_URL=https://myapi.com\n        GOOGLE_MAPS_API_KEY=abcdefgh</code>\n      </pre>\n    </div>"
+      "content": "<div> \n      <p>(this text is copied for an example)<a target=\"_blank\" href=\"https://github.com/av-dev/el-test\" target=\"_blank\"> This project</a> uses react-native-config to expose config variables to your javascript code in React Native. You can store API keys and other sensitive information in a <code>.env</code> file:</p>\n      <pre>\n        <code>API_URL=https://myapi.com\n        GOOGLE_MAPS_API_KEY=abcdefgh</code>\n      </pre>\n    </div>"
     }
   ]
 }

@@ -59,7 +59,7 @@
 .navBar > span {
   position: absolute;
   cursor: pointer;
-  top: 1rem;
+  top: 24px;
   width: 24px;
   height: 24px;
   background-color: rgba(#D5D6D9, .1);
@@ -110,7 +110,7 @@ span.navButtonNext {
 }
 
 .caption {
-  padding: 8px 0.5rem 0;
+  padding: 10px 0.5rem 0;
   text-align: left;
   margin-bottom: 21px;
 }
@@ -184,10 +184,11 @@ span.navButtonNext {
   &:before {
     position: absolute;
     top: 0px;
-    left: -10px;
+    left: -11px;
     right: 0px;
     bottom: 0px;
     content: '';
+    z-index: -1;
   }
 }
 
@@ -257,7 +258,7 @@ span.navButtonNext {
 
 .selected:not(.disabled):not(.outside) {
   &:before {
-    background: rgba(#2D7ADF, .1);
+    background: #f0f6fc;
   }
 }
 
@@ -291,7 +292,8 @@ span.navButtonNext {
   color: #fff;
   border-radius: 4px;
   &:before {
-    border-radius: 0 4px 4px 0;
+    border-radius: 0;
+    right: 100%
   }
 }
 

@@ -6,6 +6,7 @@ const initialState = {
   enteredTo: null,
   focusedInput: START_DATE
 };
+
 export default function calendarReducers(state = initialState, action) {
   if (action.type === SET_DATES) {
     const {startDate, endDate, enteredTo} = action;

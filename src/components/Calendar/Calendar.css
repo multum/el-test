@@ -50,7 +50,7 @@
 .navBar > span {
   position: absolute;
   cursor: pointer;
-  top: 1rem;
+  top: 24px;
   width: 24px;
   height: 24px;
   background-color: rgba(213, 214, 217, 0.1);
@@ -90,7 +90,7 @@ span.navButtonNext {
   display: none; }
 
 .caption {
-  padding: 8px 0.5rem 0;
+  padding: 10px 0.5rem 0;
   text-align: left;
   margin-bottom: 21px; }
 
@@ -158,10 +158,11 @@ span.navButtonNext {
   .day:before {
     position: absolute;
     top: 0px;
-    left: -10px;
+    left: -11px;
     right: 0px;
     bottom: 0px;
-    content: ''; }
+    content: '';
+    z-index: -1; }
 
 .weekNumber {
   padding: 0.5rem;
@@ -214,7 +215,7 @@ span.navButtonNext {
   color: #dce0e0; }
 
 .selected:not(.disabled):not(.outside):before {
-  background: rgba(45, 122, 223, 0.1); }
+  background: #f0f6fc; }
 
 .day:not(.disabled):not(.outside):not(.start):not(.end):not(.selected):hover {
   background-color: #1066D8;
@@ -242,7 +243,8 @@ span.navButtonNext {
   color: #fff;
   border-radius: 4px; }
   .end:not(.disabled):not(.outside):before {
-    border-radius: 0 4px 4px 0; }
+    border-radius: 0;
+    right: 100%; }
 
 .dicker:not(.interactionDisabled)
 .day:not(.disabled):not(.selected):not(.outside):hover {

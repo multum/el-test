@@ -18,19 +18,21 @@ class Readme extends Component {
   render() {
     console.log(this.props.data);
     return (
-        <div className={grid.container}>
-          <h2 className={typography.h2}>Ameen Merchant App</h2>
-          {this.props.data && this.props.data.map((elementProps, index) => <CollapsibleElement active={!index} key={index} {...elementProps}/>)}
-        </div>
+      <div className={grid.container}>
+        <h2 className={typography.h2}>Ameen Merchant App</h2>
+        {this.props.data && this.props.data.map((elementProps, index) => <CollapsibleElement active={!index}
+                                                                                             key={index} {...elementProps}/>)}
+      </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    data: state.readmeReducer
-  };
-};
+const mapStateToProps = ({readmeReducer}) => {
+    return {
+      data: readmeReducer.data
+    };
+  }
+;
 
 const mapDispatchToProps = (dispatch) => {
   return {
