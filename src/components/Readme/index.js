@@ -9,7 +9,7 @@ import typography from '../../styles/typography.css';
 import {fetchReadme} from "../../api/readme";
 import {FETCH_README_DATA} from "../../constans/readme";
 
-class Home extends Component {
+class Readme extends Component {
 
   async componentDidMount() {
     this.props.getReadmeData();
@@ -44,4 +44,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Readme);

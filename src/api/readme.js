@@ -1,4 +1,4 @@
-import readmeData from '../data/home.json';
+import readmeData from '../data/readme.json';
 
 /**
  * Fetch posts

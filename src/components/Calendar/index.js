@@ -1,32 +1,95 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import 'react-dates/initialize';
-import 'react-dates/lib/css/_datepicker.css';
-import {DayPickerRangeController} from 'react-dates';
+
+
+import DayPicker, {DateUtils} from 'react-day-picker';
+import CalendarInputs from '../CalendarInputs/index';
+
+import 'react-day-picker/lib/style.css';
 
 import css from './Calendar.css';
 
 import grid from '../../styles/grid.css';
 import typography from '../../styles/typography.css';
 
-import {RANGE_DATES_CHANGE, FOCUS_INPUT_CHANGE} from "../../constans/calendar";
+import {SET_DATES} from "../../constans/calendar";
 
 class Calendar extends Component {
+
+  isSelectingFirstDay(from, to, day) {
+    const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
+    const isRangeSelected = from && to;
+    console.log(!from || isBeforeFirstDay || isRangeSelected);
+    return !from || isBeforeFirstDay || isRangeSelected;
+  }
+  focusInput(input) {
+    return () => {
+      const {startDate} = this.props.dates;
+      if(input === 'start') {
+        this.props.datesChange({
+          startDate: null,
+          endDate: null,
+          enteredTo: null
+        });
+      }
+      else if(input === 'end'){
+        this.props.datesChange({
+          startDate: startDate,
+          endDate: null,
+          enteredTo: null
+        });
+      }
+    }
+  }
+  handleDayMouseEnter = (day) => {
+    const {startDate, endDate} = this.props.dates;
+    if (!this.isSelectingFirstDay(startDate, endDate, day)) {
+
+      this.props.datesChange({
+        startDate,
+        endDate,
+        enteredTo: day
+      });
+    }
+  };
+
+  handleDayClick = (day) => {
+    const {startDate, endDate} = this.props.dates;
+
+    if (!this.isSelectingFirstDay(startDate, endDate, day)) {
+      this.props.datesChange({
+        startDate,
+        endDate: day,
+        enteredTo: day
+      });
+    } else {
+      this.props.datesChange({
+        startDate: day,
+        endDate: null,
+        enteredTo: null
+      });
+    }
+  };
+
   render() {
+    const {startDate, enteredTo} = this.props.dates;
+    const selectedDays = [startDate, {from: startDate, to: enteredTo}];
+    const disabledDays = { before: startDate};
+    const modifiers = { [css.start]: startDate, [css.end]: enteredTo }
     return (
       <div className={grid.container}>
         <h2 className={typography.h2}>Calendar</h2>
-        <DayPickerRangeController
+        <CalendarInputs onSelectStart={this.focusInput('start')} onSelectEnd={this.focusInput('end')}/>
+        <DayPicker
+          className={css.calendar}
+          classNames={css}
           numberOfMonths={2}
-          daySize={50}
-          horizontalMargin={30}
-          verticalHeight={500}
-          keepOpenOnDateSelect={true}
-          startDate={this.props.dates.startDate}
-          endDate={this.props.dates.endDate}
-          onDatesChange={this.props.datesChange}
-          focusedInput={this.props.dates.focusedInput}
-          onFocusChange={this.props.focusedInputChange}
+          fromMonth={this.props.startDate}
+          selectedDays={selectedDays}
+          modifiers={modifiers}
+          disabledDays={disabledDays}
+          onDayClick={this.handleDayClick}
+          onDayMouseEnter={this.handleDayMouseEnter}
         />
       </div>
     );
@@ -40,19 +103,24 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    datesChange({startDate, endDate}) {
+    datesChange(dates) {
       dispatch({
-        type: RANGE_DATES_CHANGE,
-        startDate,
-        endDate
+        type: SET_DATES,
+        ...dates
       });
     },
-    focusedInputChange(focusedInput) {
-      dispatch({
-        type: FOCUS_INPUT_CHANGE,
-        focusedInput
-      });
-    }
+  //   setEnteredDay(enteredTo) {
+  //     dispatch({
+  //       type: SET_ENTERED_DAY,
+  //       enteredTo
+  //     });
+  //   },
+  //   focusedInputChange(focusedInput) {
+  //     dispatch({
+  //       type: SET_FOCUS_INPUT,
+  //       focusedInput
+  //     });
+  //   }
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Calendar);

@@ -7,7 +7,7 @@ import Footer from './components/Footer/index';
 import history from './history';
 import store from './store/index';
 import css from './App.css';
-import Home from './components/Home/index';
+import Readme from './components/Readme/index';
 import Calendar from './components/Calendar/index'
 
 class App extends Component {
@@ -18,7 +18,7 @@ class App extends Component {
           <div>
             <Header/>
             <main className={css.wrapper}>
-              <Route exact path='/' component={Home}/>
+              <Route exact path='/' component={Readme}/>
               <Route path='/calendar' component={Calendar}/>
               <Footer/>
             </main>
