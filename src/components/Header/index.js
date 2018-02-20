@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {NavLink} from 'react-router-dom';
+import Link from '../Link/index';
 
 import css from './Header.css';
 import grid from '../../styles/grid.css';
@@ -28,16 +28,19 @@ class Header extends Component {
   render() {
     return (
       <div className={css.wrapper}>
-        <div className={`${grid.container} ${css.container}`}>
-          <div className={css.user}>
-            <div className={css.logo}>AV</div>
-            <div className={css.name}>Andrey Vereshchak</div>
+        <div className={grid.container}>
+          <div className={css.justify}>
+            <div className={css.user}>
+              <div className={css.logo}>AV</div>
+              <div className={css.name}>Andrey Vereshchak</div>
+            </div>
+            <ul className={css.navList}>
+              {links.map(link => {
+                return <li key={link.path}><Link activeClassName={css.activeLink} to={link.path}>{link.text}</Link>
+                </li>;
+              })}
+            </ul>
           </div>
-          <ul className={css.navList}>
-            {links.map(link => {
-              return <li key={link.path}><NavLink exact activeClassName={css.activeLink} to={link.path}>{link.text}</NavLink></li>;
-            })}
-          </ul>
         </div>
       </div>
     );

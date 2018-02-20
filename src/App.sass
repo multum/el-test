@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500')
 @import url('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css')
+@import './styles/helpers'
 @import './styles/fonts.scss'
 @import './styles/common.sass'
 
-.container
+.wrapper
 	text-align: left
 	padding-top: 120px
+	+flex(column, wrap, flex-start, flex-start)
+	min-height: 100vh

@@ -1,1 +1,1 @@
-export const ADD_README_DATA = 'ADD_README_DATA';
+export const FETCH_README_DATA = 'FETCH_README_DATA';

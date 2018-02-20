@@ -10,7 +10,7 @@
   backface-visibility: hidden;
   z-index: 9999; }
 
-.container {
+.justify {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -42,7 +42,8 @@
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: flex-start;
-  font-weight: 300; }
+  font-weight: 300;
+  font-size: 14px; }
   .navList li {
     margin: 0 10px; }
   .navList a {

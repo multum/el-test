@@ -1,0 +1,23 @@
+@import '../../styles/helpers'
+.wrapper
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), linear-gradient(271.84deg, #3023AE -82.55%, #53A0FD 42.25%)
+	background-blend-mode: multiply, normal
+	position: relative
+	margin-top: auto
+	width: 100%
+	padding: 17px 0
+	color: #ffffff
+	font-size: 14px
+	font-weight: 300
+.justify
+	+flex(row, wrap, space-between, center)
+.navList
+	+flex(row, wrap, flex-start, flex-start)
+	a
+		padding: 10px
+		margin: 0 7px
+		transition: .3s
+		opacity: .6
+		&:hover
+			color: #FAFBFC
+			opacity: 0.8

@@ -18,6 +18,11 @@ body {
   font-family: "Roboto", sans-serif;
   background: #FAFBFC; }
 
-.container {
+.wrapper {
   text-align: left;
-  padding-top: 120px; }
+  padding-top: 120px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 100vh; }

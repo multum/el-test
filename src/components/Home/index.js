@@ -7,7 +7,7 @@ import grid from '../../styles/grid.css';
 import typography from '../../styles/typography.css';
 
 import {fetchReadme} from "../../api/readme";
-import {ADD_README_DATA} from "../../constans/readme";
+import {FETCH_README_DATA} from "../../constans/readme";
 
 class Home extends Component {
 
@@ -16,20 +16,19 @@ class Home extends Component {
   }
 
   render() {
+    console.log(this.props.data);
     return (
-      <div>
         <div className={grid.container}>
           <h2 className={typography.h2}>Ameen Merchant App</h2>
           {this.props.data && this.props.data.map((elementProps, index) => <CollapsibleElement active={!index} key={index} {...elementProps}/>)}
         </div>
-      </div>
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    data: state.readmeReducers.data
+    data: state.readmeReducer
   };
 };
 
@@ -38,7 +37,7 @@ const mapDispatchToProps = (dispatch) => {
     getReadmeData: async () => {
       const data = await fetchReadme();
       dispatch({
-        type: ADD_README_DATA,
+        type: FETCH_README_DATA,
         data
       });
     }
