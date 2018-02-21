@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 
 import Link from '../Link/index';
 
@@ -33,7 +32,7 @@ const links = [
   }
 ];
 
-class Footer extends Component {
+export default class Footer extends Component {
   render() {
     return (
       <div className={css.wrapper}>
@@ -53,5 +52,3 @@ class Footer extends Component {
     );
   }
 }
-
-export default connect()(Footer);

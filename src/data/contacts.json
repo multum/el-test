@@ -18,21 +18,21 @@
       "ico": "svg/contacts/ico3.svg",
       "icoBackgroundColor": "#2260b7",
       "name": "Facebook",
-      "href": "#",
+      "href": "https://www.facebook.com/vereshchak.av",
       "buttonText": "Visit page"
     },
     {
       "ico": "svg/contacts/ico4.svg",
       "icoBackgroundColor": "#223b82",
       "name": "Linkedin",
-      "href": "#",
+      "href": "www.linkedin.com/in/joyzi",
       "buttonText": "Visit page"
     },
     {
       "ico": "svg/contacts/ico5.svg",
       "icoBackgroundColor": "#fff",
       "name": "Github",
-      "href": "#",
+      "href": "https://github.com/av-dev",
       "buttonText": "Visit page"
     }
   ]

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import Link from '../Link/index';
 
 import css from './Header.css';
@@ -24,7 +23,7 @@ const links = [
   }
 ];
 
-class Header extends Component {
+export default class Header extends Component {
   render() {
     return (
       <div className={css.wrapper}>
@@ -46,10 +45,3 @@ class Header extends Component {
     );
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    state
-  };
-};
-export default connect(mapStateToProps)(Header);

@@ -29,11 +29,10 @@ class Readme extends Component {
 }
 
 const mapStateToProps = ({readmeReducer}) => {
-    return {
-      data: readmeReducer.data
-    };
-  }
-;
+  return {
+    data: readmeReducer.data
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {

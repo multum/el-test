@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
 
-import Link from '../Link/index';
-
 import {FETCH_CONTACTS_DATA} from "../../constans/contacts";
 import {fetchContacts} from "../../api/contacts";
 

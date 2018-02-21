@@ -20,11 +20,18 @@
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: flex-start; }
+  .navList li {
+    margin: 0 10.5px; }
+    .navList li:last-child {
+      margin-right: 0; }
   .navList a {
-    padding: 10px;
+    padding: 10px 0;
     margin: 0 7px;
     transition: .3s;
     opacity: .6; }
     .navList a:hover {
       color: #FAFBFC;
       opacity: 0.8; }
+
+.copyright {
+  color: rgba(255, 255, 255, 0.6); }
