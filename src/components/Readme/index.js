@@ -11,17 +11,18 @@ import {FETCH_README_DATA} from "../../constans/readme";
 
 class Readme extends Component {
 
-  async componentDidMount() {
+  componentDidMount() {
     this.props.getReadmeData();
   }
 
   render() {
-    console.log(this.props.data);
     return (
-      <div className={grid.container}>
+      <div className={grid.smContainer}>
         <h2 className={typography.h2}>Ameen Merchant App</h2>
-        {this.props.data && this.props.data.map((elementProps, index) => <CollapsibleElement active={!index}
-                                                                                             key={index} {...elementProps}/>)}
+        {this.props.data && this.props.data.map((elementProps, index) => {
+          const first = index === 0;
+          return <CollapsibleElement active={first} key={index} {...elementProps}/>;
+        })}
       </div>
     );
   }

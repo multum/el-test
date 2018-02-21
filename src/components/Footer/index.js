@@ -28,7 +28,7 @@ const links = [
     text: 'Help'
   },
   {
-    path: '/contact',
+    path: '/contacts',
     text: 'Contact'
   }
 ];

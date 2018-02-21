@@ -15,12 +15,12 @@ const links = [
     text: 'Calendar'
   },
   {
-    path: '/portfolio',
-    text: 'Portfolio'
+    path: '/contacts',
+    text: 'Contact us'
   },
   {
-    path: '/contact',
-    text: 'Contact us'
+    path: 'http://zomboy.pe.hu',
+    text: 'Portfolio'
   }
 ];
 
@@ -30,10 +30,10 @@ class Header extends Component {
       <div className={css.wrapper}>
         <div className={grid.container}>
           <div className={css.justify}>
-            <div className={css.user}>
+            <Link className={css.user} to={'/contacts'}>
               <div className={css.logo}>AV</div>
               <div className={css.name}>Andrey Vereshchak</div>
-            </div>
+            </Link>
             <ul className={css.navList}>
               {links.map(link => {
                 return <li key={link.path}><Link activeClassName={css.activeLink} to={link.path}>{link.text}</Link>

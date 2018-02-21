@@ -1,8 +1,6 @@
 @import '../../styles/helpers'
-$ico-width: 36px
-$ico-margin-right: 16px
 .wrapper
-	padding: 16px
+	padding: 16px 16px
 	background: #FFFFFF
 	border-radius: 4px
 	margin-bottom: 8px
@@ -17,11 +15,12 @@ $ico-margin-right: 16px
 		display: block
 .title
 	text-align: left
-	margin: -16px -16px
+	margin: -15px -16px
 	padding: 16px
 	+flex(row, nowrap, flex-start, center)
 	cursor: pointer
 	position: relative
+	font-size: 20px
 	&:after
 		position: absolute
 		background: url(../../svg/arrow_icon.svg) no-repeat center center
@@ -31,32 +30,25 @@ $ico-margin-right: 16px
 		right: 15px
 		top: 50%
 		margin-top: -5px
-	i
-		width: $ico-width
-		height: $ico-width
-		border-radius: 50%
-		position: relative
-		display: block
-		margin-right: $ico-margin-right
-		img, svg
-			position: absolute
-			top: 50%
-			left: 50%
-			transform: translate(-50%, -50%)
+.ico
+	composes: roundIcon from '../../styles/uikit.css'
 .content
-	padding-left: calc(#{$ico-width} + #{$ico-margin-right})
-	margin-top: 7px
+	padding-left: 52px
+	margin-top: 8px
 	display: none
 	p
 		font-weight: 300
 		line-height: 24px
 		font-size: 16px
 		color: #121926
+		margin-bottom: 4px
+		&:last-child
+			margin-bottom: 0
 		a
 			color: #2B69FF
 			&:hover
 				text-decoration: underline
 		strong
 			font-weight: 400
-			padding-right: 12px
+			padding-right: 8px
 

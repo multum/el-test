@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "ico": "svg/contacts/ico1.svg",
+      "icoBackgroundColor": "#00abef",
+      "name": "Twitter",
+      "href": "https://twitter.com/JoyZiDev",
+      "buttonText": "Visit page"
+    },
+    {
+      "ico": "svg/contacts/ico2.svg",
+      "icoBackgroundColor": "#ff123b",
+      "name": "Email",
+      "href": "mailTo:vereschak@gmail.com",
+      "buttonText": "Contact us"
+    },
+    {
+      "ico": "svg/contacts/ico3.svg",
+      "icoBackgroundColor": "#2260b7",
+      "name": "Facebook",
+      "href": "#",
+      "buttonText": "Visit page"
+    },
+    {
+      "ico": "svg/contacts/ico4.svg",
+      "icoBackgroundColor": "#223b82",
+      "name": "Linkedin",
+      "href": "#",
+      "buttonText": "Visit page"
+    },
+    {
+      "ico": "svg/contacts/ico5.svg",
+      "icoBackgroundColor": "#fff",
+      "name": "Github",
+      "href": "#",
+      "buttonText": "Visit page"
+    }
+  ]
+}

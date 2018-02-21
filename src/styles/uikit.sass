@@ -1,0 +1,37 @@
+.blueButton
+	padding: 0 12px
+	line-height: 36px
+	background: #1367D7
+	border-radius: 4px
+	display: inline-flex
+	flex-flow: row nowrap
+	justify-content: center
+	color: #fff
+	font-size: 16px
+	font-weight: 500
+	min-width: 115px
+	span
+		position: relative
+		padding-right: 12px
+		&:after
+			position: absolute
+			content: ''
+			width: 5px
+			height: 8px
+			background: url(../svg/arrow_to_right.svg) no-repeat center center
+			top: 50%
+			right: 0
+			margin-top: -4px
+
+.roundIcon
+	width: 36px
+	height: 36px
+	border-radius: 50%
+	position: relative
+	display: block
+	margin-right: 16px
+	img, svg
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)

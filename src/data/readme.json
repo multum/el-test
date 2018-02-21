@@ -2,7 +2,7 @@
   "data": [
     {
       "title": {
-        "ico": "svg/ico1.svg",
+        "ico": "svg/readme/ico1.svg",
         "icoBackgroundColor": "#1367D7",
         "text": "How to Setup"
       },
@@ -10,15 +10,15 @@
     },
     {
       "title": {
-        "ico": "svg/ico2.svg",
+        "ico": "svg/readme/ico2.svg",
         "icoBackgroundColor": "#24B1E7",
         "text": "How to Run App"
       },
-      "content": "<div>\n      <ul>\n        <li>\n            <p>Enter in console <code>npm start</code></p>\n        </li>\n        <li>\n            <p><strong>Step 2:</strong> cd to the cloned repo</p>\n        </li>\n        <li>\n            <p><strong>Step 3:</strong> Install the Application with <code>yarn</code> or <code>npm i</code></p>\n        </li>\n      </ul>\n    </div>"
+      "content": "<div>\n      <ul>\n        <li>\n            <p>Enter in terminal <code>npm start</code></p>\n        </li>\n       </ul>\n    </div>"
     },
     {
       "title": {
-        "ico": "svg/ico3.svg",
+        "ico": "svg/readme/ico3.svg",
         "icoBackgroundColor": "#00C2A5",
         "text": "Used Technologies"
       },
@@ -26,7 +26,7 @@
     },
     {
       "title": {
-        "ico": "svg/ico4.svg",
+        "ico": "svg/readme/ico4.svg",
         "icoBackgroundColor": "#ECBF00",
         "text": "Secrets"
       },

@@ -1,19 +1,30 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, {Component} from 'react';
+import {NavLink} from 'react-router-dom';
 import isExternal from 'is-url-external';
+import {omit} from 'lodash/object';
 
 /**
  * Link that also works for external URL's
  */
-export default class LinkDuo extends Component {
+export default class Link extends Component {
+
+  isRoute = () => !isExternal(this.props.to);
+
   render() {
-    return isExternal(this.props.to) ?
+    const propsForExternal = omit(this.props, [
+      'activeClassName',
+      'to'
+    ]);
+
+    return this.isRoute() ?
+      <NavLink exact {...this.props} >{this.props.children}</NavLink>
+      :
       <a
         href={this.props.to}
         target='_blank'
-        {...this.props}
-      >{this.props.children}</a>
-      :
-      <NavLink exact {...this.props} >{this.props.children}</NavLink>;
+        {...propsForExternal}
+      >
+        {this.props.children}
+      </a>;
   }
 }

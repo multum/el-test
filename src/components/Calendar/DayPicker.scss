@@ -1,0 +1,317 @@
+@import '../../styles/helpers';
+/* DayPicker styles */
+
+.calendar {
+  display: inline-block;
+  outline: none;
+}
+
+.wrapper {
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-bottom: 1rem;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  outline: none;
+}
+
+.months {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.month {
+  background: #ffffff;
+  border-spacing: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-top: 1rem;
+  margin: 0;
+  transition: .3s;
+  padding: 16px 16px 12px;
+  z-index: 1;
+  &:hover {
+    z-index: 2;
+    box-shadow: 0px 2px 10px rgba(19, 19, 19, 0.09);
+  }
+}
+
+.navBar {
+  overflow: hidden;
+}
+
+.body {
+  overflow: hidden;
+}
+
+.navBar > span {
+  position: absolute;
+  cursor: pointer;
+  top: 24px;
+  width: 24px;
+  height: 24px;
+  background-color: rgba(#D5D6D9, .1);
+  border-radius: 4px;
+  z-index: 10;
+  outline: none;
+  &:hover {
+    &:before {
+      opacity: .6;
+    }
+  }
+  &:before {
+    transition: .3s;
+    margin-top: -5px;
+    border: 5px solid transparent;
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin-top: -5px;
+    margin-left: -8px;
+    top: 50%;
+    left: 50%;
+    content: '';
+  }
+}
+
+.navButton:hover {
+  opacity: 0.8;
+}
+
+span.navButtonPrev {
+  left: 24px;
+  &:before {
+    border-right-color: #222634 !important;
+  }
+}
+
+span.navButtonNext {
+  right: 24px;
+  &:before {
+    margin-left: -2px;
+    border-left-color: #222634 !important;
+  }
+}
+
+.navButton--interactionDisabled {
+  display: none;
+}
+
+.caption {
+  padding: 10px 0.5rem 0;
+  text-align: left;
+  margin-bottom: 21px;
+}
+
+.caption > div {
+  font-size: 20px;
+  text-align: center;
+  color: #222634;
+}
+
+.weekdays {
+  margin-top: 22px;
+}
+
+.weekdaysRow {
+  @include flex(row, nowrap, flex-start, stretch);
+  border-radius: 4px;
+  padding: 10px 0 6px;
+  background: #F6F8FA;
+  margin-bottom: 10px;
+}
+
+.weekday {
+  width: 36px;
+  margin: 0 7.2px;
+  text-align: center;
+  color: #222634;
+  opacity: 0.4;
+  font-size: 14px;
+  &:first-child {
+    margin-left: 0
+  }
+  &:last-child {
+    margin-right: 0
+  }
+}
+
+.weekday abbr[title] {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.week {
+  @include flex(row, nowrap, flex-start, stretch);
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.day {
+  margin: 0 7.2px;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  cursor: pointer;
+  vertical-align: middle;
+  outline: none;
+  color: rgba(#363A47, .7);
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  line-height: 36px;
+  border-radius: 4px;
+  &:first-child {
+    margin-left: 0
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+  &:before {
+    position: absolute;
+    top: 0px;
+    left: -15px;
+    right: 0px;
+    bottom: 0px;
+    content: '';
+    z-index: -1;
+  }
+}
+
+.weekNumber {
+  padding: 0.5rem;
+  text-align: right;
+  vertical-align: middle;
+  min-width: 1rem;
+  font-size: 0.75em;
+  cursor: pointer;
+  color: #8b9898;
+  border-right: 1px solid #eaecec;
+}
+
+.interactionDisabled .day {
+  cursor: default;
+}
+
+.footer {
+  padding-top: 0.5rem;
+}
+
+.todayButton {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  cursor: pointer;
+  color: #4a90e2;
+  font-size: 0.875em;
+}
+
+.day--today {
+  color: #d0021b;
+  font-weight: 700;
+}
+
+.outside {
+  cursor: default;
+  color: rgba(#363A47, .4);
+  & + .day {
+    &:before {
+      left: 0
+    }
+  }
+}
+
+.disabled {
+  cursor: default;
+  color: rgba(#363A47, .4);
+}
+
+/* Example modifiers */
+
+.day--sunday {
+  background-color: #f7f8f8;
+}
+
+.sunday:not(.today) {
+  color: #dce0e0;
+}
+
+.selected:not(.disabled):not(.outside) {
+  &:before {
+    background: #eaf2fc;
+  }
+}
+
+.day:not(.disabled):not(.outside):not(.start):not(.end):not(.selected):hover {
+  background-color: #1066D8;
+  color: #fff
+}
+
+.start:not(.disabled):not(.outside) {
+  background: #1066D8;
+  color: #fff;
+  border-radius: 4px;
+  &:after {
+    position: absolute;
+    bottom: 5px;
+    width: 3px;
+    height: 3px;
+    left: 50%;
+    margin-left: -1.5px;
+    content: '';
+    background: #ffffff;
+    border-radius: 50%;
+  }
+  &:before {
+    display: none;
+  }
+}
+
+.end:not(.disabled):not(.outside) {
+  background: #1066D8;
+  color: #fff;
+  border-radius: 4px;
+  &:before {
+    border-radius: 0;
+    right: 100%
+  }
+}
+
+.dicker:not(.interactionDisabled)
+.day:not(.disabled):not(.selected):not(.outside):hover {
+  background-color: #f0f8ff;
+}
+
+/* DayPickerInput */
+
+.input {
+  display: inline-block;
+}
+
+.input-OverlayWrapper {
+  position: relative;
+}
+
+.input-Overlay {
+  left: 0;
+  z-index: 1;
+  position: absolute;
+  background: white;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}

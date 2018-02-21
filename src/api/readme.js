@@ -6,7 +6,6 @@ import readmeData from '../data/readme.json';
  * @description pseudo fetch for test task
  * @returns {promise}
  */
-console.log(readmeData.data);
 export const fetchReadme = async () => {
   return new Promise(resolve => 'data' in readmeData && resolve(readmeData.data));
 };

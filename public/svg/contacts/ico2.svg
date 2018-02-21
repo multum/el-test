@@ -1,0 +1,5 @@
+<svg width="15px" height="12px" viewBox="0 0 15 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M13.5,0 L1.5,0 C0.675,0 0.0075,0.675 0.0075,1.5 L0,10.5 C0,11.325 0.675,12 1.5,12 L13.5,12 C14.325,12 15,11.325 15,10.5 L15,1.5 C15,0.675 14.325,0 13.5,0 L13.5,0 Z M13.5,3 L7.5,6.75 L1.5,3 L1.5,1.5 L7.5,5.25 L13.5,1.5 L13.5,3 L13.5,3 Z" id="Icon" fill="#FFFFFF"></path>
+    </g>
+</svg>

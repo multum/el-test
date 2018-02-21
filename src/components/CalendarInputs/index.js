@@ -5,9 +5,7 @@ import css from './CalendarInputs.css';
 
 class CalendarInputs extends Component {
   formatDate(date) {
-    if (date) {
-      return new Date(date).toLocaleDateString().replace(/\./g, '/');
-    }
+    if (date) return new Date(date).toLocaleDateString().replace(/\./g, '/');
     return '--/--/--';
   }
 
@@ -23,7 +21,6 @@ class CalendarInputs extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className={css.wrapper}>
         <div className={css.container}>
@@ -50,4 +47,5 @@ const mapStateToProps = state => {
     ...state.calendarReducer
   };
 };
+
 export default connect(mapStateToProps)(CalendarInputs);

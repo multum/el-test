@@ -22,7 +22,7 @@ class CollapsibleElement extends Component {
     return (
       <div className={`${this.wrapperClass()} `} ref={(element) => this.wrapper = element}>
         <div className={css.title} onClick={this.contentToggle.bind(this)}>
-          <i style={{backgroundColor: this.props.title.icoBackgroundColor}}>
+          <i className={css.ico} style={{backgroundColor: this.props.title.icoBackgroundColor}}>
             <img src={process.env.PUBLIC_URL + this.props.title.ico} alt=""/>
           </i>
           <p>{this.props.title.text}</p>

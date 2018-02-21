@@ -1,10 +1,9 @@
-import {START_DATE, SET_DATES, SET_FOCUS_INPUT} from "../constans/calendar";
+import {SET_DATES} from "../constans/calendar";
 
 const initialState = {
   startDate: null,
   endDate: null,
-  enteredTo: null,
-  focusedInput: START_DATE
+  enteredTo: null
 };
 
 export default function calendarReducers(state = initialState, action) {
@@ -15,9 +14,6 @@ export default function calendarReducers(state = initialState, action) {
       endDate,
       enteredTo
     });
-  }
-  if (action.type === SET_FOCUS_INPUT) {
-    return Object.assign({}, state, {focusedInput: action.focusedInput});
   }
   return state;
 }
