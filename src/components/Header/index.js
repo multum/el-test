@@ -18,7 +18,7 @@ const links = [
     text: 'Contact us'
   },
   {
-    path: 'https://codepen.io/',
+    path: 'https://codepen.io/JoyZi/',
     text: 'Portfolio'
   }
 ];
