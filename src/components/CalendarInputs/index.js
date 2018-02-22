@@ -1,46 +1,42 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 
 import css from './CalendarInputs.css';
 
-class CalendarInputs extends Component {
-  formatDate(date) {
+const CalendarInputs = (props) => {
+  const {startDate, endDate, onSelectStart, onSelectEnd} = props;
+
+  const formatDate = (date) => {
     if (date) return new Date(date).toLocaleDateString().replace(/\./g, '/');
     return '--/--/--';
-  }
+  };
 
-  selectedDays() {
-    const {startDate, endDate} = this.props;
-
+  const selectedDays = () => {
     if (startDate && endDate) {
       const delta = Math.abs(startDate - endDate) / 1000;
       return Math.floor(delta / 86400) + 1;
-    } else {
-      return '--';
-    }
-  }
+    } else return '--';
+  };
 
-  render() {
-    return (
-      <div className={css.wrapper}>
-        <div className={css.container}>
-          <div className={css.item} onClick={this.props.onSelectStart}>
-            <span>Departure</span>
-            <p>{this.formatDate(this.props.startDate)}</p>
-          </div>
-          <div className={css.item} onClick={this.props.onSelectEnd}>
-            <span>Arriving</span>
-            <p>{this.formatDate(this.props.endDate)}</p>
-          </div>
+  return (
+    <div className={css.wrapper}>
+      <div className={css.container}>
+        <div className={css.item} onClick={onSelectStart}>
+          <span>Departure</span>
+          <p>{formatDate(startDate)}</p>
         </div>
-        <div className={`${css.item} ${css.counter}`}>
-          <span>Days</span>
-          <p>{this.selectedDays()}</p>
+        <div className={css.item} onClick={onSelectEnd}>
+          <span>Arriving</span>
+          <p>{formatDate(endDate)}</p>
         </div>
       </div>
-    );
-  }
-}
+      <div className={`${css.item} ${css.counter}`}>
+        <span>Days</span>
+        <p>{selectedDays()}</p>
+      </div>
+    </div>
+  );
+};
 
 const mapStateToProps = state => {
   return {

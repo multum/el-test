@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {NavLink} from 'react-router-dom';
 import isExternal from 'is-url-external';
 import omit from 'lodash/omit';
@@ -6,25 +6,21 @@ import omit from 'lodash/omit';
 /**
  * Link that also works for external URL's
  */
-export default class Link extends Component {
+const Link = props => {
+  const {to, children} = props;
 
-  isRoute = () => !isExternal(this.props.to);
+  const isRoute = () => !isExternal(to);
 
-  render() {
-    const propsForExternal = omit(this.props, [
-      'activeClassName',
-      'to'
-    ]);
+  const propsForExternal = omit(props, [
+    'activeClassName',
+    'to'
+  ]);
 
-    return this.isRoute() ?
-      <NavLink exact {...this.props} >{this.props.children}</NavLink>
-      :
-      <a
-        href={this.props.to}
-        target='_blank'
-        {...propsForExternal}
-      >
-        {this.props.children}
-      </a>;
+  if (isRoute()) {
+    return <NavLink exact {...props} >{children}</NavLink>;
+  } else {
+    return <a href={to} target='_blank' {...propsForExternal}>{children}</a>;
   }
-}
+};
+
+export default Link;

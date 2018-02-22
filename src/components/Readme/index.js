@@ -34,7 +34,7 @@ const mapStateToProps = ({readmeReducer}) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     getReadmeData: async () => {
       const data = await fetchReadme();

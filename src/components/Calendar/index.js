@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 
 
@@ -15,40 +15,43 @@ import typography from '../../styles/typography.css';
 import {SET_DATES} from "../../constans/calendar";
 
 
-class Calendar extends Component {
+const Calendar = props => {
 
-  isSelectingFirstDay(from, to, day) {
+  const {startDate, endDate, enteredTo} = props.dates;
+  const {datesChange} = props;
+
+  const selectedDays = [startDate, {from: startDate, to: enteredTo}];
+  const disabledDays = {before: startDate};
+  const modifiers = {[cssDayPicker.start]: startDate, [cssDayPicker.end]: enteredTo};
+
+  const isSelectingFirstDay = (from, to, day) => {
     const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
     const isRangeSelected = from && to;
     return !from || isBeforeFirstDay || isRangeSelected;
-  }
+  };
 
-  focusInput(input) {
+  const focusInput = (input) => {
     return () => {
-      const {startDate} = this.props.dates;
       if (input === 'start') {
-        this.props.datesChange({
+        datesChange({
           startDate: null,
           endDate: null,
           enteredTo: null
         });
       }
       else if (input === 'end') {
-        this.props.datesChange({
+        datesChange({
           startDate: startDate,
           endDate: null,
           enteredTo: null
         });
       }
     };
-  }
+  };
 
-  handleDayMouseEnter = (day) => {
-
-    const {startDate, endDate} = this.props.dates;
-
-    if (!this.isSelectingFirstDay(startDate, endDate, day)) {
-      this.props.datesChange({
+  const handleDayMouseEnter = (day) => {
+    if (!isSelectingFirstDay(startDate, endDate, day)) {
+      datesChange({
         startDate,
         endDate,
         enteredTo: day
@@ -56,18 +59,15 @@ class Calendar extends Component {
     }
   };
 
-  handleDayClick = (day) => {
-
-    const {startDate, endDate} = this.props.dates;
-
-    if (this.isSelectingFirstDay(startDate, endDate, day)) {
-      this.props.datesChange({
+  const handleDayClick = (day) => {
+    if (isSelectingFirstDay(startDate, endDate, day)) {
+      datesChange({
         startDate: day,
         endDate: null,
         enteredTo: null
       });
     } else {
-      this.props.datesChange({
+      datesChange({
         startDate,
         endDate: day,
         enteredTo: day
@@ -75,51 +75,44 @@ class Calendar extends Component {
     }
   };
 
-  render() {
-    const {startDate, enteredTo} = this.props.dates;
-    const selectedDays = [startDate, {from: startDate, to: enteredTo}];
-    const disabledDays = {before: startDate};
-    const modifiers = {[cssDayPicker.start]: startDate, [cssDayPicker.end]: enteredTo};
-    return (
-      <div className={grid.smContainer}>
-        <h2 className={typography.h2}>Calendar</h2>
-        <div className={css.wrapper}>
 
-          <CalendarInputs onSelectStart={this.focusInput('start')} onSelectEnd={this.focusInput('end')}/>
+  return (
+    <div className={grid.smContainer}>
+      <h2 className={typography.h2}>Calendar</h2>
+      <div className={css.wrapper}>
 
-          <DayPicker
-            weekdayElement={<Weekday/>}
-            className={cssDayPicker.calendar}
-            classNames={cssDayPicker}
-            numberOfMonths={2}
-            fromMonth={this.props.startDate}
-            selectedDays={selectedDays}
-            modifiers={modifiers}
-            disabledDays={disabledDays}
-            onDayClick={this.handleDayClick}
-            onDayMouseEnter={this.handleDayMouseEnter}
-          />
+        <CalendarInputs onSelectStart={focusInput('start')} onSelectEnd={focusInput('end')}/>
 
-        </div>
+        <DayPicker
+          weekdayElement={<Weekday/>}
+          className={cssDayPicker.calendar}
+          classNames={cssDayPicker}
+          numberOfMonths={2}
+          fromMonth={startDate}
+          selectedDays={selectedDays}
+          modifiers={modifiers}
+          disabledDays={disabledDays}
+          onDayClick={handleDayClick}
+          onDayMouseEnter={handleDayMouseEnter}
+        />
+
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     dates: state.calendarReducer
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    datesChange(dates) {
-      dispatch({
-        type: SET_DATES,
-        ...dates
-      });
-    }
+    datesChange: dates => dispatch({
+      type: SET_DATES,
+      ...dates
+    })
   };
 };
 
