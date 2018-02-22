@@ -8,6 +8,7 @@
     "is-url-external": "^1.0.3",
     "lodash": "^4.17.5",
     "react": "^16.2.0",
+    "react-day-picker": "^7.0.7",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",

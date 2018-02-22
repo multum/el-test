@@ -6,7 +6,7 @@ const initialState = {
   enteredTo: null
 };
 
-export default function calendarReducers(state = initialState, action) {
+export default function calendarReducer(state = initialState, action) {
   if (action.type === SET_DATES) {
     const {startDate, endDate, enteredTo} = action;
     return Object.assign({}, state, {

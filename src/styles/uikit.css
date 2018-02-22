@@ -36,4 +36,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 100%;
-    max-height: 100%; }
+    max-height: 100%;
+    transition: opacity .3s;
+    opacity: 0; }
+  .roundIcon:global(.no-transition) img {
+    transition: 0s; }
+  .roundIcon:global(.loaded) img {
+    opacity: 1; }

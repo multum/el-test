@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
+import ImageLoader from '../ImageLoader';
 
 import css from './CollapsibleElement.css';
 
@@ -23,7 +24,7 @@ class CollapsibleElement extends Component {
       <div className={`${this.wrapperClass()} `} ref={(element) => this.wrapper = element}>
         <div className={css.title} onClick={this.contentToggle.bind(this)}>
           <i className={css.ico} style={{backgroundColor: this.props.title.icoBackgroundColor}}>
-            <img src={process.env.PUBLIC_URL + this.props.title.ico} alt=""/>
+            <ImageLoader src={this.props.title.ico}/>
           </i>
           <p>{this.props.title.text}</p>
         </div>

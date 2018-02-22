@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import isExternal from 'is-url-external';
-import {omit} from 'lodash/object';
+import omit from 'lodash/omit';
 
 /**
  * Link that also works for external URL's

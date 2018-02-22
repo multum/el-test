@@ -4,7 +4,7 @@ const initialState = {
   data: []
 };
 
-export default function readmeReducers(state = initialState, action) {
+export default function readmeReducer(state = initialState, action) {
   if (action.type === FETCH_README_DATA) {
     return Object.assign({}, state, {data: action.data});
   }

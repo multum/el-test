@@ -1,0 +1,1 @@
+export const ADD_LOADED_IMAGE = 'ADD_LOADED_IMAGE';

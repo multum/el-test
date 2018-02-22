@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
+import ImageLoader from '../ImageLoader/index';
 
 import {FETCH_CONTACTS_DATA} from "../../constans/contacts";
 import {fetchContacts} from "../../api/contacts";
@@ -25,7 +26,7 @@ class Contacts extends Component {
               return <a target={'_blank'} href={contact.href} className={css.item} key={index}>
                 <div className={css.name}>
                   <i className={css.ico} style={{backgroundColor: contact.icoBackgroundColor}}>
-                    <img src={process.env.PUBLIC_URL + contact.ico} alt={contact.name}/>
+                    <ImageLoader src={contact.ico}/>
                   </i>
                   <p>{contact.name}</p>
                 </div>
