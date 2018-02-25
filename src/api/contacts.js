@@ -1,11 +1,11 @@
-import contactsData from '../data/contacts.json';
+import {fetchJSON} from "../helpers/common";
 
 /**
- * Fetch posts
+ * Fetch contacts list
  *
- * @description pseudo fetch for test task
  * @returns {promise}
  */
 export const fetchContacts = async () => {
-  return new Promise(resolve => 'data' in contactsData && resolve(contactsData.data));
+  const json = await fetchJSON('data/contacts.json');
+  return json.data;
 };

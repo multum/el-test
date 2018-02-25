@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 
 import css from './CalendarInputs.css';
 
@@ -38,10 +37,4 @@ const CalendarInputs = (props) => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    ...state.calendarReducer
-  };
-};
-
-export default connect(mapStateToProps)(CalendarInputs);
+export default CalendarInputs;

@@ -11,24 +11,24 @@ import css from './App.css';
 import Header from './components/Header/index';
 import Footer from './components/Footer/index';
 
-import Readme from './components/Readme/index';
-import Calendar from './components/Calendar/index'
-import Contacts from './components/Contacts/index'
+import ReadmeContainer from './containers/ReadmeContainer';
+import CalendarContainer from './containers/CalendarContainer'
+import ContactsContainer from './containers/ContactsContainer'
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>
-          <div>
+          <React.Fragment>
             <Header/>
             <main className={css.wrapper}>
-              <Route exact path='/' component={Readme}/>
-              <Route path='/calendar' component={Calendar}/>
-              <Route path='/contacts' component={Contacts}/>
+              <Route exact path='/' component={ReadmeContainer}/>
+              <Route path='/calendar' component={CalendarContainer}/>
+              <Route path='/contacts' component={ContactsContainer}/>
               <Footer/>
             </main>
-          </div>
+          </React.Fragment>
         </ConnectedRouter>
       </Provider>
     );

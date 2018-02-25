@@ -1,119 +1,118 @@
-import React from 'react';
-import {connect} from 'react-redux';
-
+import React, {Component} from 'react';
 
 import DayPicker, {DateUtils} from 'react-day-picker';
 import CalendarInputs from '../CalendarInputs/index';
 import Weekday from '../Weekday/index';
 
-import 'react-day-picker/lib/style.css';
-import cssDayPicker from './DayPicker.css';
 import css from './Calendar.css';
+import cssDayPicker from './DayPicker.css';
 import grid from '../../styles/grid.css';
 import typography from '../../styles/typography.css';
 
-import {SET_DATES} from "../../constans/calendar";
+import {Resp, throttle} from "../../helpers/common";
 
+export default class Calendar extends Component {
+  state = {
+    numberOfMonths: 2,
+    enteredTo: null
+  };
 
-const Calendar = props => {
+  componentDidMount() {
+    window.addEventListener("resize", this.resize);
+    this.setNumberOfMonths();
+  }
 
-  const {startDate, endDate, enteredTo} = props.dates;
-  const {datesChange} = props;
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.resize);
+  }
 
-  const selectedDays = [startDate, {from: startDate, to: enteredTo}];
-  const disabledDays = {before: startDate};
-  const modifiers = {[cssDayPicker.start]: startDate, [cssDayPicker.end]: enteredTo};
+  resize = throttle(() => {
+    this.setNumberOfMonths();
+  }, 100, this);
 
-  const isSelectingFirstDay = (from, to, day) => {
+  setNumberOfMonths = () => {
+    const numberOfMonths = Resp.isTablet() ? 1 : 2;
+    if (numberOfMonths !== this.state.numberOfMonths) {
+      this.setState({numberOfMonths});
+    }
+  };
+
+  isSelectingFirstDay = (from, to, day) => {
     const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
     const isRangeSelected = from && to;
     return !from || isBeforeFirstDay || isRangeSelected;
   };
 
-  const focusInput = (input) => {
+  focusInput = (input) => {
+    const {startDate} = this.props.dates;
     return () => {
       if (input === 'start') {
-        datesChange({
+        this.props.datesChange({
           startDate: null,
-          endDate: null,
-          enteredTo: null
+          endDate: null
         });
       }
       else if (input === 'end') {
-        datesChange({
+        this.props.datesChange({
           startDate: startDate,
-          endDate: null,
-          enteredTo: null
+          endDate: null
         });
       }
     };
   };
-
-  const handleDayMouseEnter = (day) => {
-    if (!isSelectingFirstDay(startDate, endDate, day)) {
-      datesChange({
-        startDate,
-        endDate,
+  handleDayMouseEnter = (day) => {
+    const {startDate, endDate} = this.props.dates;
+    if (!this.isSelectingFirstDay(startDate, endDate, day)) {
+      this.setState({
         enteredTo: day
       });
     }
   };
-
-  const handleDayClick = (day) => {
-    if (isSelectingFirstDay(startDate, endDate, day)) {
-      datesChange({
+  handleDayClick = (day) => {
+    const {startDate, endDate} = this.props.dates;
+    if (this.isSelectingFirstDay(startDate, endDate, day)) {
+      this.props.datesChange({
         startDate: day,
-        endDate: null,
-        enteredTo: null
+        endDate: null
       });
     } else {
-      datesChange({
+      this.props.datesChange({
         startDate,
-        endDate: day,
-        enteredTo: day
+        endDate: day
       });
     }
   };
 
+  render() {
 
-  return (
-    <div className={grid.smContainer}>
-      <h2 className={typography.h2}>Calendar</h2>
-      <div className={css.wrapper}>
+    const {startDate} = this.props.dates;
+    const selectedDays = [startDate, {from: startDate, to: this.state.enteredTo}];
+    const disabledDays = {before: startDate};
+    const modifiers = {[cssDayPicker.start]: startDate, [cssDayPicker.end]: this.state.enteredTo};
 
-        <CalendarInputs onSelectStart={focusInput('start')} onSelectEnd={focusInput('end')}/>
+    return (
+      <div className={grid.smContainer}>
+        <h2 className={typography.h2}>Calendar</h2>
+        <div className={css.wrapper}>
 
-        <DayPicker
-          weekdayElement={<Weekday/>}
-          className={cssDayPicker.calendar}
-          classNames={cssDayPicker}
-          numberOfMonths={2}
-          fromMonth={startDate}
-          selectedDays={selectedDays}
-          modifiers={modifiers}
-          disabledDays={disabledDays}
-          onDayClick={handleDayClick}
-          onDayMouseEnter={handleDayMouseEnter}
-        />
+          <CalendarInputs {...this.props.dates} onSelectStart={this.focusInput('start')}
+                          onSelectEnd={this.focusInput('end')}/>
 
+          <DayPicker
+            weekdayElement={<Weekday/>}
+            className={cssDayPicker.calendar}
+            classNames={cssDayPicker}
+            numberOfMonths={this.state.numberOfMonths}
+            fromMonth={startDate}
+            selectedDays={selectedDays}
+            modifiers={modifiers}
+            disabledDays={disabledDays}
+            onDayClick={this.handleDayClick}
+            onDayMouseEnter={this.handleDayMouseEnter}
+          />
+
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
-
-const mapStateToProps = state => {
-  return {
-    dates: state.calendarReducer
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    datesChange: dates => dispatch({
-      type: SET_DATES,
-      ...dates
-    })
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Calendar);

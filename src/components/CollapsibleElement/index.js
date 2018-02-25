@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import classNames from 'classnames';
 import ImageLoader from '../ImageLoader';
 
@@ -29,4 +28,4 @@ const CollapsibleElement = props => {
   );
 };
 
-export default connect()(CollapsibleElement);
+export default CollapsibleElement;

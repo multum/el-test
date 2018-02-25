@@ -1,15 +1,11 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 
 import CollapsibleElement from '../CollapsibleElement/index';
 
 import grid from '../../styles/grid.css';
 import typography from '../../styles/typography.css';
 
-import {fetchReadme} from "../../api/readme";
-import {FETCH_README_DATA} from "../../constans/readme";
-
-class Readme extends Component {
+export default class Readme extends Component {
 
   componentDidMount() {
     this.props.getReadmeData();
@@ -27,23 +23,3 @@ class Readme extends Component {
     );
   }
 }
-
-const mapStateToProps = ({readmeReducer}) => {
-  return {
-    data: readmeReducer.data
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    getReadmeData: async () => {
-      const data = await fetchReadme();
-      dispatch({
-        type: FETCH_README_DATA,
-        data
-      });
-    }
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Readme);

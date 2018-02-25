@@ -1,17 +1,14 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
+
 import classNames from 'classnames';
 import ImageLoader from '../ImageLoader/index';
-
-import {FETCH_CONTACTS_DATA} from "../../constans/contacts";
-import {fetchContacts} from "../../api/contacts";
 
 import css from './Contacts.css';
 import typography from '../../styles/typography.css';
 import grid from '../../styles/grid.css';
 import uiKit from '../../styles/uikit.css';
 
-class Contacts extends Component {
+export default class Contacts extends Component {
   componentDidMount() {
     this.props.getContactsData();
   }
@@ -40,24 +37,4 @@ class Contacts extends Component {
       </div>
     );
   }
-}
-
-const mapStateToProps = ({contactsReducer}) => {
-  return {
-    data: contactsReducer.data
-  };
 };
-
-const mapDispatchToProps = dispatch => {
-  return {
-    getContactsData: async () => {
-      const data = await fetchContacts();
-      dispatch({
-        type: FETCH_CONTACTS_DATA,
-        data
-      });
-    }
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Contacts);

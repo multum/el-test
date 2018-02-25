@@ -1,11 +1,11 @@
-import readmeData from '../data/readme.json';
+import {fetchJSON} from "../helpers/common";
 
 /**
  * Fetch posts
  *
- * @description pseudo fetch for test task
  * @returns {promise}
  */
 export const fetchReadme = async () => {
-  return new Promise(resolve => 'data' in readmeData && resolve(readmeData.data));
+  const json = await fetchJSON('data/readme.json');
+  return json.data;
 };
