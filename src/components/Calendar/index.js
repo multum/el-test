@@ -20,11 +20,11 @@ export default class Calendar extends Component {
   componentDidMount() {
     window.addEventListener("resize", this.resize);
     this.setNumberOfMonths();
-  }
+  };
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.resize);
-  }
+  };
 
   resize = throttle(() => {
     this.setNumberOfMonths();
@@ -46,41 +46,41 @@ export default class Calendar extends Component {
   focusInput = (input) => {
     const {startDate} = this.props.dates;
     return () => {
+      let dates = null;
+
       if (input === 'start') {
-        this.props.datesChange({
-          startDate: null,
-          endDate: null
-        });
+        dates = {startDate: null, endDate: null};
       }
       else if (input === 'end') {
-        this.props.datesChange({
-          startDate: startDate,
-          endDate: null
-        });
+        dates = {startDate: startDate, endDate: null};
       }
+
+      this.props.datesChange(dates);
+      this.setState({enteredTo: null});
     };
   };
+
   handleDayMouseEnter = (day) => {
     const {startDate, endDate} = this.props.dates;
     if (!this.isSelectingFirstDay(startDate, endDate, day)) {
-      this.setState({
-        enteredTo: day
-      });
+      this.setState({enteredTo: day});
     }
   };
+
   handleDayClick = (day) => {
     const {startDate, endDate} = this.props.dates;
+    let dates = null;
+
     if (this.isSelectingFirstDay(startDate, endDate, day)) {
-      this.props.datesChange({
-        startDate: day,
-        endDate: null
-      });
+      dates = {startDate: day, endDate: null};
     } else {
-      this.props.datesChange({
-        startDate,
-        endDate: day
-      });
+      dates = {startDate, endDate: day};
     }
+
+    this.props.datesChange(dates);
+    this.setState({
+      enteredTo: dates.endDate
+    });
   };
 
   render() {
